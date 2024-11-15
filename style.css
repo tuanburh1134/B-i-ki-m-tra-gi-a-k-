@@ -1,0 +1,64 @@
+/* CSS styling for layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header, nav, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0066cc;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0066cc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #e6f2ff;
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 0.9em;
+}
+
+#student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#student-table, #student-table th, #student-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

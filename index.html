@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - CMC University</title>
+    <style>
+        /* CSS styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Style */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 75px;
+        }
+        header h1 {
+            color: #0066cc;
+            font-size: 30px;
+        }
+
+        /* Navigation Menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #000;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 20px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #333;
+        }
+
+        /* Page content styling */
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .page-section {
+            display: none;
+        }
+        .responsive {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <header>
+        <img src="cmc_logo.png" alt="CMC University Logo">
+        <h1>CMC University</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link" data-page="home">Trang chủ</a></li>
+            <li><a href="#" class="nav-link" data-page="info">Thông tin</a></li>
+            <li><a href="#" class="nav-link" data-page="list">Xem DS</a></li>
+            <li><a href="#" class="nav-link" data-page="add">Thêm SV</a></li>
+            <li><a href="#" class="nav-link" data-page="login">Đăng nhập</a></li>
+        </ul>
+    </nav>
+
+    <!-- Body Content -->
+    <div class="container responsive" id="content">
+        <section id="home" class="page-section">
+            <h2>Welcome to CMC University</h2>
+            <p>CMC khẳng định vị thế tại triển lãm ngành công nghiệp bán dẫn Việt Nam 2024</p>
+            <p>Với hàng ngàn phần quà hấp dẫn cũng như các hoạt động thú vị do chính các CLB sinh viên của Trường Đại học CMC tổ chức. Chắc chắn rằng đây sẽ là ngày hội đáng nhớ trong năm 2024 đối với mỗi sinh viên của Trường Đại học CMC.
+
+                Đối với các bạn sinh viên K3, hoạt động tham gia ngày hội CLB là bắt buộc thuộc Chuyên đề học tập số 13 trong Chương trình Định hướng – Hội nhập sinh viên K3, do đó sẽ có điểm danh kèm theo, nếu vắng mặt không lý do, P. CTSV sẽ tiến hành trừ trực tiếp vào điểm rèn luyện kỳ Thu của các em theo quy chế sinh viên.</p>
+        </section>
+        <section id="info" class="page-section" style="display: none;">
+            <h2>Thông tin về trường</h2>
+            <p>CMC Uni Festival Day</p>
+            <p>Nhằm thúc đẩy phong trào hoạt động ngoại khóa, tạo sân trơi giải trí sau những tiết học tập, đề cao các kỹ năng sáng tạo và tổ chức đối với sinh viên.
+
+                Phòng Công tác sinh viên (P. CTSV) phối hợp cùng với 16 CLB đang hoạt động tại Trường Đại học CMC tổ chức ngày hội: CMC Uni Festival với thông tin như sau:</p>
+        </section>
+        <section id="list" class="page-section" style="display: none;">
+            <h2>Danh sách sinh viên</h2>
+
+            <table border="1" width="100%" id="student-list">
+                <tr>
+                    <th>Lớp</th>
+                    <th>Họ tên</th>
+                    <th>MSSV</th>
+                    <th>Giảng viên</th>
+                    <th>Điểm</th>
+                </tr>
+            </table>
+        </section>
+        <section id="add" class="page-section" style="display: none;">
+            <h2>Thêm Sinh Viên</h2>
+            <form id="add-student-form">
+                <label for="student-id">Mã SV:</label>
+                <input type="text" id="student-id" required><br><br>
+                <label for="student-name">Họ và tên:</label>
+                <input type="text" id="student-name" required><br><br>
+                <label for="student-birthday">Ngày sinh:</label>
+                <input type="date" id="student-birthday" required><br><br>
+                <label for="student-gpa">Điểm TB:</label>
+                <input type="number" id="student-gpa" step="0.1" required><br><br>
+                <button type="submit">Thêm</button>
+            </form>
+        </section>
+        <section id="login" class="page-section" style="display: none;">
+            <h2>Đăng nhập</h2>
+            <form id="login-form">
+                <label for="username">Email:</label>
+                <input type="email" id="username" required><br><br>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" required><br><br>
+                <button type="submit">Đăng nhập</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>CMC University </p>
+        <p>CMC Tower Số 11 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</p>
+        <p>Email: tuyensinh@cmc-u.edu.vn | Hotline: 024 7102 9999</p>
+    </footer>
+
+    <!-- JavaScript for page navigation, login, and adding student -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".page-section").hide();
+            $("#home").show();
+
+            // Navigation
+            $(".nav-link").click(function(e){
+                e.preventDefault();
+                var page = $(this).data("page");
+                $(".page-section").hide();
+                $("#" + page).show();
+            });
+
+            // Login form submission
+            $("#login-form").submit(function(e){
+                e.preventDefault();
+                var email = $("#username").val();
+                var password = $("#password").val();
+
+                if (password === "1") { // Check if password is correct
+                    alert("Đăng nhập thành công!");
+                    $(".page-section").hide();
+                    $("#home").show();
+                } else {
+                    alert("Mật khẩu không đúng!");
+                }
+            });
+
+            // Load students from localStorage
+            function loadStudents() {
+                $("#student-list tr:gt(0)").remove(); // Clear existing rows except header
+                var students = JSON.parse(localStorage.getItem("students")) || [];
+                students.forEach(function(student) {
+                    $("#student-list").append(
+                        "<tr><td>" + student.class + "</td><td>" + student.name + "</td><td>" + student.id + "</td><td>" + student.teacher + "</td><td>" + student.gpa + "</td></tr>"
+                    );
+                });
+            }
+            loadStudents();
+
+            // Add student form submission
+            $("#add-student-form").submit(function(e){
+                e.preventDefault();
+
+                // Get form data
+                var studentId = $("#student-id").val();
+                var studentName = $("#student-name").val();
+                var studentGpa = parseFloat($("#student-gpa").val());
+
+                // Default values
+                var studentClass = "23IT2";
+                var studentTeacher = "Lưu Bích Hương";
+
+                // Check for GPA > 8.5
+                if (studentGpa > 8.5) {
+                    if (!confirm("SV này có điểm xuất sắc. Bạn có muốn lưu lại?")) {
+                        return;
+                    }
+                }
+
+                // Save to localStorage
+                var students = JSON.parse(localStorage.getItem("students")) || [];
+                students.push({
+                    id: studentId,
+                    name: studentName,
+                    class: studentClass,
+                    teacher: studentTeacher,
+                    gpa: studentGpa
+                });
+                localStorage.setItem("students", JSON.stringify(students));
+
+                // Reload student list
+                loadStudents();
+
+                // Clear form
+                $("#add-student-form")[0].reset();
+
+                alert("Thêm sinh viên thành công.");
+                $(".page-section").hide();
+                $("#list").show();
+            });
+        });
+    </script>
+
+</body>
+</html>
